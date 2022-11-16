@@ -1,0 +1,233 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+
+:root{
+    --tamaño-texto: 20px;
+    --tamaño-titulo: 40px;
+    --color-texto: #3c3d3c;
+    --color-fondo: #931d1e;
+    --color-contenedor: #83818161;
+    --color-fondo2: #fff;
+
+}
+
+.pagina-principal{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.contenedor-info-principal{
+    width: 100%;
+}
+.contenedor-info-principal p{
+    font-size: var(--tamaño-texto);
+    color: var(--color-texto);
+}
+.contenedor-info-secundario{
+    width: 100%;
+    background-color: white;
+}
+.titulo{
+    font-size: var(--tamaño-titulo);
+    color: var(--color-fondo);
+}
+.enlaces{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 150px;
+    animation: bajar 3s 2.8s;
+}
+
+@keyframes bajar{
+    0%{
+        position: relative;
+        top: -100px;
+    }
+    100%{
+        position: relative;
+        top: 0px
+    }
+}
+
+.enlaces a{
+    text-transform: uppercase;
+    color: var(--color-texto);
+    font-size: var(--tamaño-texto);
+}
+.contenedor-texto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 100px;
+}
+.contenedor-tarjetas{
+   display: flex;
+   flex-direction: row;
+   gap: 16px;
+   width: 100%;
+   height: 355px;
+   background-color: var(--color-fondo);
+   justify-content: center;
+   align-items: center;
+   border-top-right-radius: 50px;
+   animation: subir 3s 2.8s;
+}
+
+@keyframes subir{
+    0%{
+        position: relative;
+        bottom: -320px;
+    }
+    100%{
+        position: relative;
+        bottom: 0px;
+    }    
+}
+
+.tarjeta{
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    background-color: var(--color-contenedor) ;
+    border-radius: 20px;
+    align-items: center;
+    
+}
+
+.pagina-cargando{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 100vh;
+    background-color: antiquewhite;
+    animation: desaparecer 3s forwards;
+}
+@keyframes desaparecer{
+    0%{
+        visibility: visible;
+    }
+    90%, 100%{
+        visibility: hidden;
+    }
+}
+.puntos{
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-fondo);
+    border-radius: 50%;
+    animation-name: palpitar;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes palpitar{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.puntos:nth-child(1){
+    animation-delay: 0s;
+}
+.puntos:nth-child(2){
+    animation-delay: 0.5s;
+}
+.puntos:nth-child(3){
+    animation-delay: 1s;
+}
+.contenedor-info-secundario{
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "blanco imagen imagen imagen texto";
+    animation: desplazar 3s 2.8s;
+}
+
+@keyframes desplazar{
+    0%{
+        position: relative;
+        right: -300px;
+    }
+    100%{
+        position: relative;
+        right: 0px;  
+    }
+}
+
+.imagen-vengador{
+    width: 100%;
+    grid-area: imagen;
+    align-self: center;
+}
+.texto-imagen{
+    grid-area: texto;
+    transform: rotate(-90deg);
+    align-self: center;
+}
+.fondo{
+    grid-column: 3/6;
+    grid-row: 1/2;
+    background-color: cadetblue;
+}
+
+
+.pagina-modal{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+    background-color: #3535356e;
+    align-items: center;
+}
+.modal{
+    width: 50%;
+    height: 50%;
+    background-color: #3535356e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* overflow: hidden; */
+}
+
+.modal > img{
+    height: 50%;
+}
+
+
+.close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: #c44a4a;
+    color: #fff;
+    line-height: 25px;
+    cursor: pointer;
+
+}
